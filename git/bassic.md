@@ -91,7 +91,20 @@ ECS연타->:q!
 $ git log
 ```
 
-### 꿀명령어
+### 원격 저장소 등록하기
+
+```
+$ git remote add origin <URL> #등록하기
+
+$ git remote -v #확인하기
+origin <URL>... #origin remote 저장소의 이름
+
+$ git remote rm <remote_repo_name>
+```
+
+
+
+### 기본명령어
 
 | 명령어                  | 설명                       |
 | ----------------------- | -------------------------- |
