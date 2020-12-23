@@ -81,6 +81,9 @@ $ git commit 시 메모로 들어가짐
 
 나오는법
 ECS연타->:q!
+
+$ git commit --amend 
+가장 최근에 commit을 삭제
 ```
 
 ### Log보기 
@@ -89,9 +92,12 @@ ECS연타->:q!
 
 ```
 $ git log
+
+$ git log --pretty =oneline 
+log를 단순하게 보여줌
 ```
 
-### 원격 저장소 등록하기
+### 원격 저장소(remote repo) 등록하기
 
 ```
 $ git remote add origin <URL> #등록하기
@@ -101,6 +107,14 @@ origin <URL>... #origin remote 저장소의 이름
 
 $ git remote rm <remote_repo_name>
 ```
+
+### 원격 저장소에 push하기
+
+```
+$ git push orgin master
+```
+
+
 
 
 
