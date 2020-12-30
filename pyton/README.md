@@ -23,6 +23,7 @@
 | ctrl+/         | 블록전체 주석 및 취소 설정 |
 | ctrl+shift+F10 | run                        |
 | tap            | 자동 들여쓰기              |
+| ctrl+space     | 사용가능 함수 ls 출력      |
 
 ## 파이썬 주의점
 
