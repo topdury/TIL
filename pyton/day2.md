@@ -1,5 +1,106 @@
 # Day 2
 
+## 리스트와 튜플
+
+``` 
+차이점: 튜플은 값을 변경(생성,삭제,수정) 할수 없음,()사용
+t1=(1,2,3) # 튜플
+
+print(t1)
+
+print(type(t1))# type tuple
+
+# del t1[1] # 참조할때는 [](대괄호) 사용,  튜플은 값 수정이 안되므로 에러 발생
+
+
+# print(t1[2])=5#인덱싱 에러
+
+print(t1[1:])# 인덱싱은 가능
+
+t2=('a',3,4)
+
+print(t1+t2)#연산 가능
+
+t3=(5,6)
+
+print(t3*5)
+
+print(len(t3))
+
+person=('kim',20,60.5,True) #리스트와 같이 여러개에 자료형을 섞어서 저장가능
+
+print(person)
+
+# t4=(7) #타입 시 int가 나옴 tuple은 뒤에 (,) 붙여야함
+
+# t4=(7,)
+#
+# print(t4)
+#
+# print(type(t4)) # tuple
+
+#t5=5,8 #이것도 튜플이긴 하지만 되도록이면 tuple을 나타내는 기호로 묶어서 표현할 것
+
+
+t6=(1,2,(3,4))
+print(t6)
+
+```
+
+### 튜플,리스트간에 상호 변환
+
+```
+#튜플 -> 리스트 변환 ,리스트 -> 튜플 변환
+x=tuple(range(1,10))
+
+print(x)
+(1,2,3,4,5,6,7,8,9)
+
+#x에 저장된 5->50으로 변경하고 싶을 경우
+# x[4]=50 에러...
+# 튜플->리스트->요소 값 변경
+
+print(list(x))
+
+tempx=list(x)
+tempx[4]=50
+print(tempx)
+(1,2,3,4,50,6,7,8,9)
+
+y=[1,2,3]
+tempy=tuple(y)
+print(type(tempy))
+type tuple
+
+s='hello'
+print(list(s)) #리스트에 문자영을 주면 문자 리스트가 만들어 짐
+['h', 'e', 'l', 'l', 'o']
+print(tuple(s)) #튜플에 문자영을 주면 문자 튜플가 만들어짐
+('h', 'e', 'l', 'l', 'o')
+
+a,b,c,=[1,2,3]
+
+print(a)
+print(type(a))
+<class 'int'>
+
+
+a,b,c,=(1,2,3)
+
+print(a)
+print(type(a))
+<class 'int'>
+
+k=(1,2,3)
+a,b,c,=k
+
+print(a)
+print(type(a))
+<class 'int'>
+```
+
+
+
 ## offset: 몇칸 건너뛸래?
 
 ```
@@ -247,7 +348,7 @@ print(a)
 
 # 리스트의 요소를 제거 : del, remove, pop
 
-#del : 특정 위치에 저장된 값을 제거 (예약어:함수가 아님)
+#del : 특정 위치에 저장된 값을 제거 (예약어:함수가 아님,  시퀀스 객체[인덱스]: 튜플, range, 문자열도 삭제 안됨
 a=[10,20,30]
 
 del a[1] #지정 위치 제거
@@ -370,5 +471,96 @@ print("{0:-^10}".format("hi")) #10자리 -채우고 후 가운데 정렬
 
 print("{0:4f}".format(3.141592))
 print("{0:10.4f}".format(3.141592))
+```
+
+## 과제
+
+```
+# 과제
+# 1.다음과 같은 문자열이 있을 때 이를 대문자 BTC_KRW로 변경하세요.
+ticker = "btc_krw"
+
+print(ticker.upper())
+
+# 2.다음과 같은 문자열이 있을 때 이를 소문자 btc_krw로 변경하세요.
+
+ticker = "BTC_KRW"
+
+print(ticker.lower())
+
+# 3.다음과 같은 문자열이 있을 때 공백을 기준으로 문자열을 나눠보세요.
+
+a = "hello world"
+
+print(a.split())
+
+# 4.다음과 같이 문자열이 있을 때 btc와 krw로 나눠보세요.
+
+ticker = "btc_krw"
+
+print(ticker.split("_"))
+
+# 5.다음과 같이 날짜를 표현하는 문자열이 있을 때 연도, 월, 일로 나눠보세요.
+
+date = "2020-12-30"
+
+print(date.split("-"))
+
+# 6.문자열의 오른쪽에 공백이 있을 때 이를 제거해보세요.
+data = "039490     "
+
+print(data.rstrip())
+
+# 7.변수에 다음과 같이 문자열과 정수가 바인딩되어 있을 때 % formatting을 사용해서 다음과 같이 출력해보세요.
+
+name1 = "김민수"
+age1 = 10
+name2 = "이철희"
+age2 = 13
+# 이름: 김민수 나이: 10
+# 이름: 이철희 나이: 13
+print("이름: %s 나이: %d" % (name1, age2))
+print("이름: %s 나이: %d" % (name2, age2))
+
+# 8. 문자열의 format( ) 메서드를 사용해서 7번 문제를 다시 풀어보세요.
+print("이름: {0} 나이: {1}".format(name1, age1))
+print("이름: {0} 나이: {1}".format(name2, age2))
+
+# 9. 컴마를 제거한 후 이를 정수 타입으로 변환해보세요.
+price = "5,969,782,550"
+
+price=price.replace(",", '')
+print(int(price))
+
+# 10. 다음과 같은 문자열에서 '2020/12'만 출력하세요.
+
+분기 = "2020/12(E) (IFRS연결)"
+
+print(분기[0:7])
+
+# 11. 아래 문자열에서 소문자 'a'를 대문자 'A'로 변경하세요.
+
+string = 'abcdfe2a354a32a'
+
+string=string.replace('a',"A")
+print(string)
+
+# 12.주민등록번호 뒷자리의 맨 첫 번째 숫자는 성별을 나타낸다. 주민등록번호에서 성별을 나타내는 숫자를 출력해 보자.
+
+
+pin = "881120-1068234"
+
+print(pin[7])
+
+# 13.다음과 같은 문자열 a:b:c:d가 있다. a#b#c#d로 바꿔서 출력해 보자.
+
+a = "a:b:c:d"
+
+print(a.replace(":","#"))
+
+# 14. ['Life', 'is', 'too', 'short'] 리스트를 Life is too short 문자열로 만들어 출력해 보자.(join 활용
+
+
+print(" ".join(['Life', 'is', 'too', 'short']))
 ```
 
