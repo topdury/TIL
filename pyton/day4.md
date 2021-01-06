@@ -347,6 +347,20 @@ for dan in range(2,10): #dan=2 to 9까지 반복
 
 
 
+## random
+
+```
+import random
+print(random.random()) #0~1
+print(random.randrange(1,7)) #1~6
+
+print(random.randint(1,46)) #1~46
+print(random.randrange(1,46)) #1~45
+
+#다른점 뒤에 콤마가 가능
+print(random.randrange(1,46,2)) #1~45
+```
+
 
 
 과제
