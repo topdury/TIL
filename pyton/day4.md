@@ -460,6 +460,25 @@ print(random.randrange(1,46,2)) #1~45
 # num=random.sample(range(1,46),6)
 # print("이번 주 로또 당첨 번호 :",num)
 
+#출제자 의도
+import random
+b=[]
+for i in range(6):
+    b.append(random.randint(1,46))
+    if len(set([]))==6:
+        break
+
+
+
+
+#간단하게 아주 잘함
+import random
+answer=set()
+while len(answer)<6:
+    num=random.randrange(1,46)
+    answer.add(num)
+print(answer)
+
 
 # 7. 자판기(pro, 커피 한 잔에 300원이라 가정, 초기 커피는 10개)
 # 돈을 넣어 주세요: 500
