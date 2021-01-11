@@ -431,3 +431,91 @@ print(x)#{'a': {'python': '3.8'}, 'b': {'python': '2.8'}}
 ````
 
 ## 과제
+
+```
+#1.다음 입사 문제
+#1차원의 점들이 주어졌을 때, 그 중 가장 거리가 짮은 것의 쌍을 출력하는 함수를 작성하시오
+#(단 점들의 배열은 모도 정렬되어 있다고 가정한다.)
+# 예를 들어 S={1,3,4,8,13,17,20}이어 주어 졌다면, 결과값은(3,4)가 될 것이다
+S={1,3,4,8,13,17,20}
+
+num_set=[]
+value_set=[]
+
+def min_unmset():
+    global S
+    S=list(S)
+    for i in range(len(S)-1):
+        num=(S[i],S[i+1])
+        num_set.append(num)
+        num=S[i+1]-S[i]
+        value_set.append(num)
+    res=dict(zip(num_set,value_set))
+    min_v=min(value_set)
+    for key,value in res.items():
+        if value==min_v:
+            print(key)
+
+
+min_unmset()
+
+#류경희 씨 답변
+s = [1,3,4,8,13,17,20]
+
+def short_pair(n):
+
+    list=[] #list=[2,1,4,5,5,3]
+
+    for i in range(len(n)-1):
+
+        list.append(n[i+1]-n[i])
+
+    for j in range(len(list)):
+
+        if list[j]==min(list):
+
+            return print(n[j],n[j+1])
+
+short_pair(s)
+
+
+
+
+
+2.회문(palindrome)? 순서를 거꾸로 해서 읽어도 제대로 읽을떄와 같은 단어 or 문장
+rotator,sos (nurses run)
+문제: 임의의 단어(문장)을 입력받아 회문 여부를 출력=> True or False로 출력
+
+def palind(a):
+    if a[:]==a[::-1]:
+        print("True")
+
+    else:
+        print("False")
+palind('nurses run'.replace(" ",""))
+
+
+
+
+#강사님 답변
+# 1.단어는 level 같은 홀수에 경우
+w=input("단어를 입력하세요:")
+isPalindrome=True
+w=w.replace(''," ")
+for i in range(len(w)//2):  #5글자면 가운데를 중심으로 2번비교 6글자면 3번비교하면 되기 때문에
+    if w[i] != w[-1-i]: #왼쪽문자와 오른쪽문자가 다른 경우
+        isPalindrome=False
+        break
+print(isPalindrome)
+
+
+2.w=input("단어를 입력하세요:")
+print(w==w[::-1])
+
+3.w='level'
+print(w)
+print(''.join(reversed(w)))
+print(w==''.join(reversed(w)))
+
+
+```
