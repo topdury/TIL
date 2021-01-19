@@ -242,3 +242,37 @@ utf-8: 보편화된 인코딩
 ```
 
 ## form태그
+
+```
+<meta charset="UTF-8">
+<form>
+	<p>
+		<strong>아이디</strong>
+		<input type="text" name="name" value="아이디 입력">
+	</p>
+	<p>
+		<strong>비밀번호</strong>
+		<input type="password" name="password" value="비밀번호 입력">
+	</p>
+	<p>
+		<strong>성별</strong>
+		<input type="radio" name="gender" value="M">남자
+		<input type="radio" name="gender" value="F">여자
+	</p>
+	<p>
+		<strong>응시분야</strong>
+		<input type="checkbox" name="part" value="eng">영어
+		<input type="checkbox" name="part" value="math">수학
+	</p>
+    <select>
+        <option value="ktx">ktx</option>
+        <option value="새마을">새마을</option>
+        <option value="무궁화">무궁화</option>
+
+    </select>
+	<p>
+		<input type="submit" value="제출">
+	</p>
+</form>
+```
+
