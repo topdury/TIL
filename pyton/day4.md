@@ -66,6 +66,27 @@ s3.remove(2)
 print(s3)
 ```
 
+### set의 응용 .intersection 리스트간 중복 요소찾기 굳
+
+```
+b1=['a','b','c','d']
+b2=['a','f']
+
+b3=list(set(b1).intersection(b2))
+##['a']
+
+
+중복도 가능
+b1=['a','b','c','d']
+
+b2=[['a','g'],['b','c']]
+b3=list(set(b1).intersection(i)) for i in b2]
+
+##[['a'],['c','b']]
+```
+
+
+
 ## 메모리의 이해
 
 ````
@@ -354,11 +375,118 @@ import random
 print(random.random()) #0~1
 print(random.randrange(1,7)) #1~6
 
-print(random.randint(1,46)) #1~46
+print(random.randint(1,46)) #1~46 int로 반환
 print(random.randrange(1,46)) #1~45
 
 #다른점 뒤에 콤마가 가능
 print(random.randrange(1,46,2)) #1~45
+
+2. random.uniform(a, b)
+
+random.uniform 함수는 인자로 들어온 a~b 사이의 실수(float)를 반환합니다.
+
+uniform 함수의 랜덤 범위는 a <= x <= b 입니다.
+
+x = random.random(10, 20)
+
+print(x)    # 10.00000 <= x <= 20.00000
+
+5. random.choice(seq)
+
+choice 함수는 매개변수로 seq 타입을 받습니다. 시퀀스 데이터 타입은 문자열, 튜플, range, 리스트 타입들을 말합니다.
+
+시퀀스 함수는 인자로 받은 리스트, 튜플, 문자열, range 에서 무작위로 하나의 원소를 뽑습니다.
+
+만약, 비어있는 시퀀스 타입의 객체를 인자로 넣는다면 (ex. 리스트가 비어있다면) indexError 의 예외가 발생합니다.
+
+(indexError : 시퀀스의 인덱스가 범위를 벗어났을때 발생하는 에러)
+
+
+
+x1 = random.choice('BlockDMask')
+
+print(x1)    # 'BlockDMask' 문자열중 랜덤한 문자를 반환
+
+x2 = random.choice('')
+
+print(x2)    # indexError 발생
+
+
+
+출처: https://blockdmask.tistory.com/383 [개발자 지망생]
+
+6. random.sample(seq or set, N)
+
+첫번째 매개 변수로 시퀀스 데이터 타입(튜플, 문자열, range, 리스트) 또는 set 타입을 받을 수 있습니다.
+
+두번째 매개 변수로는 랜덤하게 뽑을 인자의 개수 입니다.
+
+sample 함수는 첫번째 인자로 받은 시퀀스데이터 or set에서 N개의 랜덤하고, unique하고, 순서상관없이 인자를 뽑아서 리스트로 만들어서 반환해줍니다.
+
+sample의 특징 2가지
+
+1. unique라는것이 중요합니다. 겹치지 않는 element를 반환한다는 것인데요
+
+- 'abc' 라는 문자열 있다고 할때 N에 2를 넣을때 겹치지 않게 a,b 혹은 b,c 혹은 c,a를 반환 합니다. (순서 상관없음)
+
+- 'aaa' 라는 문자열이 있다고 할때 N에 2를 넣으면 겹치지 않게 a,a, 혹은 a,a 혹은 a,a 를 반환 합니다. (색으로 구분했습니다, 순서상관없음)
+
+값이 중요한게 아니라 배열의 위치가 겹치지 않게 유니크한 것을 뽑는다는 이야기가 하고 싶었습니다.
+
+다시한번 말씀드리자면, str = 'aaa'가 있을때 str[0],str[1] or str[1],str[2] or str[2],str[0] 을 뽑는다는 것 입니다.
+
+
+
+2. 만약에 두번째 매개변수 N이 seq, set의 인자의 개수를 넘어갈때 valueError가 발생합니다. 
+
+- 'abc'라는 문자열을 첫번째 인자로 넣고, 두번째 인자 N를 3을 넘어가는 수인 10을 넣었다고 한다면 valueError가 발생하게 됩니다.
+
+
+
+arr1 = 'abc'
+
+print(arr1, 2) # ['a','b'] or ['b','c'] or ['c','a'] 순서는 바뀔수있음
+
+arr2 = 'ccc'
+
+print(arr2, 10) # valueError 발생
+
+arr3 = 'ccc'
+
+print(arr3, 3) #['c','c','c'] 반환
+
+
+
+7 . random.shuffle(seq)
+
+셔플 함수는 데이터의 순서를 무작위로 랜덤하게 바꾸어 주는 함수 입니다.
+
+매개변수 x에는 시퀀스 데이터 타입이 들어가게 됩니다. 하지만 내부의 값을 무작위로 바꿔야 하기 때문에 
+
+내부인자를 변경할 수 있는 리스트만 가능하게 됩니다. (문자열, 튜플 및 range(a,b)는 불가능)
+
+
+
+random.suffle(리스트) 의 반환은 없고, 인자로 들어온 리스트 내부의 데이터를 무작위로 섞습니다.
+
+
+
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(arr)    # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+
+random.shuffle(arr)    # 셔플셔플셔플 빰빰빰빠밤
+
+print(arr)    # [10, 5, 6, 7, 8, 9, 2, 3, 4, 1]  무작위로 변경됨.
+
+
+
+
+
+
+
 ```
 
 
