@@ -1,4 +1,4 @@
-# js2
+()
 
 ## 반복문
 
@@ -342,7 +342,30 @@ hgd.show()
  
 ```
 
+## max, min
 
+```
+Math.max()
+Math.min()
+
+
+var num_list=[52, 273, 103, 32, 57, 103, 31, 2]
+
+document.write(Math.max.apply(null,num_list)+"</br>");
+
+document.write(Math.min.apply(null,num_list));
+```
+
+## repeat() 문자열 곱셈을 하고싶다
+
+```
+for(i=1;i<10;i+=2){
+document.write("*".repeat(i)+"</br>")}
+for(d=7;d>0;d-=2){
+document.write("*".repeat(d)+"</br>")}
+
+주어진수만큼 문자열을 반복해서 붙임
+```
 
 
 
