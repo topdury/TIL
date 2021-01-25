@@ -220,6 +220,15 @@ var arr=[1,2,3,4];
 document.write(arr.indexOf(3));
 //3이라는 자료의 인덱스(0번부터 시작)를 출력
 
+
+//alert("hello world".indexOf('o')); //4
+//"hello world"문자열에서 "o"의 인덱스?
+//alert("hello world".indexOf('O')); //-1
+
+//alert("hello world".indexOf('hi')); //-1
+//alert("hello world".indexOf('hello')); //0
+
+alert("hello world".indexOf('world')); //0
 ```
 
 ## .splice()
