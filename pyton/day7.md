@@ -2,6 +2,23 @@
 
 ## 파이썬 라이브러리:수많은 파이썬 함수
 
+### math.sqrt():제곱근
+
+```
+def triangle(x,y):
+
+    import math
+    return math.sqrt(x**2+y**2)
+
+
+
+res=triangle(int(input("밑변:")),int(input("높이:")))
+
+print(res)
+```
+
+
+
 ### abs(): 절댓값 출력
 
 ```
@@ -312,6 +329,20 @@ print(d2)#{'a': 10, 'b': 10, 'c': 10}
 
 
 ```
+
+### value 값으로 key 값 뽑기
+
+```
+for name, age in mydict.items(): 
+#mydict에 아이템을 하나씩 접근해서, key, value를 각각 name, age에 저장
+    if age == search_age:
+        print name
+        
+
+[name for name, age in mydict.items() if age == search_age]
+```
+
+
 
 ### 참고 #딕셔너리에서 z를 찾았는데 없다면 0을 출력하라
 
