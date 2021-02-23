@@ -233,6 +233,24 @@ dim(v) #위와 같습니다
 
 ```
 
+### dim 행열 이름추가 
+
+```
+v<-1:9
+rname<-c('r1','r2','r3')
+cname<-c('c1','c2','r3')
+dim(v)<-c(3,3)
+dimnames(v)<-list(rname,cname)
+v
+
+   c1 c2 r3
+r1  1  4  7
+r2  2  5  8
+r3  3  6  9
+```
+
+
+
 ### matrix():matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,  dimnames = NULL)
 
 ```
@@ -327,7 +345,7 @@ cbind(v1,v2)
 1:3
 4:6
 
-cbind(1:3,4:6 ,matrix(7:12,3,2))
+cbind(1:3,4:6 ,matrix(7:12,3,2))na
 #      [,1] [,2] [,3] [,4]
 # [1,]    1    4    7   10
 # [2,]    2    5    8   11
